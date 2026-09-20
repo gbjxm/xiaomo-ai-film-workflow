@@ -947,7 +947,13 @@ try {
             $departmentHashes[$department] = Get-TextSha256 -Text $prompt
             $fullRolePromptChars += $prompt.Length
         }
-        $launchPrompt = New-StudioLaunchPrompt -ProjectRoot $targetPath -Capabilities ((Read-Utf8Text -Path (Join-Path $stagingPath '工作室能力.json')) | ConvertFrom-Json) -WorkflowVersion $templateVersion
+        if ($templateVersion -eq '1.0') {
+            . (Join-Path $PSScriptRoot 'get_role_launch.ps1')
+            $roleLaunchPackage = Get-V1RoleLaunchPackage -ProjectRoot $targetPath -ReadRoot $stagingPath
+            $launchPrompt = $roleLaunchPackage.launchPrompt
+        } else {
+            $launchPrompt = New-StudioLaunchPrompt -ProjectRoot $targetPath -Capabilities ((Read-Utf8Text -Path (Join-Path $stagingPath '工作室能力.json')) | ConvertFrom-Json) -WorkflowVersion $templateVersion
+        }
     } else {
     $promptA = Get-RolePrompt -Content $verifiedStartContent -Role 'A'
     $promptB = Get-RolePrompt -Content $verifiedStartContent -Role 'B'
@@ -1034,6 +1040,13 @@ try {
         $result['departmentPrompts'] = $departmentPrompts
         $result['workflowStudio'] = 'studio-v0.9'
         $result['capabilities'] = (Read-Utf8Text -Path (Join-Path $targetPath '工作室能力.json')) | ConvertFrom-Json
+        if ($templateVersion -eq '1.0') {
+            $result.launchPromptVersion = $roleLaunchPackage.launchPromptVersion
+            $result['standbyPrompts'] = $roleLaunchPackage.standbyPrompts
+            $result['roleTitles'] = $roleLaunchPackage.roleTitles
+            $result['requiredFiles'] = $roleLaunchPackage.requiredFiles
+            $result['tasksCreated'] = $false
+        }
     }
 
     $result | ConvertTo-Json -Depth 6

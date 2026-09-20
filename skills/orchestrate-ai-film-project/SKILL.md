@@ -5,6 +5,8 @@ description: 为小陌 AI 影视项目提供制片统筹、依赖和里程碑管
 
 ## V0.9 版本路由
 
+用户本轮仅要求 V1 六岗位初始化或补齐任务时，先转 `start-ai-film-project` 的[岗位任务初始化](../start-ai-film-project/references/role-task-launch.md)，只检查入口与任务工具，不展开下文的业务读取。空的待命任务不领取工作集、不运行 PrepareHandoff；后续用户提出具体制作请求时再进入本统筹流程。
+
 先读取项目入口标识。仅 `workflowStudio: studio-v0.9` 时转入 [工作室共同契约](references/studio-v09-contract.md) 和 [制片统筹](references/studio-production-coordination.md)，检查项目能力文件。产品 V1 仍使用该协议，另按入口唯一 `workflowRelease: 1.0` 读取共同契约的发布差量；未知或重复发布标识停止执行。命中后不执行下文旧版的唯一当前岗位、逐门采用、同岗缓存和写回步骤；专业参考仍按需使用。目录名或本机 Skill 版本不授予启用。
 
 无该标识时只执行下面的兼容正文，不读取 V0.9 专业契约、不增加部门、不迁移项目。早期 V0.9 能力关闭的项目只做候选演练；按当前能力路由保存、采用和续接，不能把未启用或未验证功能报告为成功。
