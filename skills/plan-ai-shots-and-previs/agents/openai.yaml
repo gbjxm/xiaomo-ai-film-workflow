@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI镜头规划与预演"
+  short_description: "规划摄影灯光、功能化覆盖、镜头组与动态预演"
+  default_prompt: "使用 $plan-ai-shots-and-previs 把该场景规划成含摄影灯光、功能覆盖和预演的可生成镜头组。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频发布包装"
+  short_description: "审看精确 QC Master 并为抖音或B站建立唯一发布包"
+  default_prompt: "使用 $package-video-release 核验并审看精确 QC Master，为指定平台拟定标题、正文与唯一发布包，先不要发布。"

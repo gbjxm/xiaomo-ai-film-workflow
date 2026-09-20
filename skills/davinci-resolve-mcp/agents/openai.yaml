@@ -1,0 +1,4 @@
+interface:
+  display_name: "达芬奇后台接口"
+  short_description: "通过受限本地 MCP 读取和操作达芬奇原生工程，保留明确验证边界"
+  default_prompt: "使用 $davinci-resolve-mcp 核对当前达芬奇工程并执行已授权的原生接口操作。"

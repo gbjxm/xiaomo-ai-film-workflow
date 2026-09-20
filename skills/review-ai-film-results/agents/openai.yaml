@@ -1,0 +1,4 @@
+interface:
+  display_name: "发行结果复盘"
+  short_description: "按实际 Master 基线复盘真实发布，并形成下一次单一调整"
+  default_prompt: "使用 $review-ai-film-results 按实际发布包与 Master 基线复盘，区分事实、反馈和假设，只提出下一次一组调整。"

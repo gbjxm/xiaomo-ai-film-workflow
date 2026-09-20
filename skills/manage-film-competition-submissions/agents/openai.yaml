@@ -1,0 +1,4 @@
+interface:
+  display_name: "影视比赛投稿策略"
+  short_description: "核实近期影视比赛，并为现有作品规划安全可行的投稿路线"
+  default_prompt: "使用 $manage-film-competition-submissions 读取当前作品状态，联网核实近期比赛，并先只读输出作品匹配、风险与下一步。"

@@ -1,0 +1,12 @@
+{
+  "schema": "xiaomo.studio-capabilities/v1",
+  "workflowStudio": "studio-v0.9",
+  "candidate_design": true,
+  "workset_runtime": true,
+  "adoption_transactions": true,
+  "media_execution": false,
+  "contractBase": "workflowRoot",
+  "contractPath": "skills/orchestrate-ai-film-project/references/studio-v09-contract.md",
+  "stage": "active",
+  "runtime_schema": "xiaomo.studio-runtime/v1"
+}

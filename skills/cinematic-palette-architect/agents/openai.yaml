@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cinematic Palette Architect"
+  short_description: "设计资产本色、项目视觉弧线与场景色彩增量"
+  default_prompt: "使用 $cinematic-palette-architect 为该资产或场景设计材质可信的色卡，并明确项目视觉弧线与 C/D 色彩边界。"

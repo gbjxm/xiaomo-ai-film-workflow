@@ -1,0 +1,201 @@
+{
+  "contract": "B_STAGE_READY",
+  "contract_version": "v1",
+  "packet_version": "vNN",
+  "supersedes_packet": null,
+  "handoff_id": "<本次故事阶段唯一 ID>",
+  "handoff_revision": 1,
+  "result": "PASS",
+  "checked_at": "<ISO-8601 带时区时间>",
+  "source_b_task_id": "<原 B 任务 ID>",
+  "a_task_envelope": {
+    "a_task_id": "<A 当前任务 ID>",
+    "a_task_version": "<精确版本>",
+    "a_file_path": "A_总控.md",
+    "a_file_sha256": "<A 验收登记前的 64 位 SHA-256>",
+    "target_role": "B",
+    "stage_goal": "<完整故事阶段目标>",
+    "input_scope": [
+      "<输入及精确版本/hash>"
+    ],
+    "out_of_scope": [
+      "<本次不做>"
+    ],
+    "writeback_scope": [
+      "B_故事剧本.md",
+      "剧本/阶段完成包/B阶段完成包_vNN.json"
+    ],
+    "external_action_boundary": {
+      "tts": {
+        "status": "not_authorized",
+        "evidence": null,
+        "scope": []
+      },
+      "document_editing": {
+        "status": "not_authorized",
+        "evidence": null,
+        "scope": []
+      },
+      "image_video_audio_generation": {
+        "status": "not_authorized",
+        "evidence": null,
+        "scope": []
+      },
+      "editing_export_cover_upload_publish": {
+        "status": "not_authorized",
+        "evidence": null,
+        "scope": []
+      }
+    },
+    "envelope_match": "PASS"
+  },
+  "b_record": {
+    "path": "B_故事剧本.md",
+    "version_or_anchor": "<当前记录版本或唯一锚点>",
+    "sha256": "<B 写后 64 位 SHA-256>"
+  },
+  "authoritative_story": {
+    "carrier": "word",
+    "path": "<项目内相对路径或已登记绝对文件路径>",
+    "version_id": "<精确版本>",
+    "sha256": "<权威剧本原始文件 64 位 SHA-256>",
+    "exact_scope": [
+      "Sxx"
+    ],
+    "word_lineage_status": "released",
+    "word_lineage_evidence": {
+      "path": "B_故事剧本.md",
+      "version_or_anchor": "<Word 谱系 released 证据锚点>",
+      "sha256": "<证据文件当前 64 位 SHA-256>"
+    },
+    "word_conflicts": "none"
+  },
+  "professional_self_check": {
+    "overall": "PASS",
+    "evidence_path": "B_故事剧本.md",
+    "evidence_version_or_anchor": "<专业自检区锚点>",
+    "evidence_sha256": "<证据文件当前 64 位 SHA-256>",
+    "whole_story_categories": [
+      {
+        "id": "premise_and_rules",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "protagonist_arc_and_relationships",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "causality_reveals_and_payoffs",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "continuity",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "dialogue",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "visible_action_and_production_boundary",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "duration_rhythm_format_and_scope",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      },
+      {
+        "id": "rights_safety_privacy_and_synthetic_risk",
+        "result": "PASS",
+        "evidence_anchor": "<证据锚点>",
+        "na_reason": null
+      }
+    ],
+    "expected_scene_count": 0,
+    "checked_scene_count": 0,
+    "scene_coverage_anchor": "<逐场覆盖表锚点>"
+  },
+  "user_decisions": {
+    "creative_adoption": {
+      "status": "granted",
+      "exact_scope": [
+        "Sxx"
+      ],
+      "artifact_version": "<与权威剧本一致的版本>",
+      "artifact_sha256": "<与权威剧本一致的 64 位 SHA-256>",
+      "evidence": "<用户创作采用证据定位>"
+    },
+    "b_record_write": {
+      "status": "granted",
+      "recorded_scope": [
+        "Sxx"
+      ],
+      "evidence": "<B 记录与本包写入授权证据定位>",
+      "b_write_completed": true,
+      "packet_write_completed": true
+    },
+    "production_release": {
+      "status": "granted",
+      "exact_scope": [
+        "Sxx"
+      ],
+      "evidence": "<制作释放证据定位>"
+    }
+  },
+  "released_sxx": [
+    {
+      "id": "Sxx",
+      "version": "vNN",
+      "b_anchor": "<B 锚点>",
+      "story_scope": [
+        "<场次或正文锚点>"
+      ],
+      "production_boundary": "<固定项与制作边界>"
+    }
+  ],
+  "rights_and_safety": {
+    "stage_status": "CLEAR",
+    "current_blockers": [],
+    "downstream_conditions": "none",
+    "evidence": "<权利与安全证据定位>"
+  },
+  "external_actions": {
+    "tts": {
+      "status": "not_authorized",
+      "evidence": null,
+      "scope": []
+    },
+    "document_editing": {
+      "status": "not_authorized",
+      "evidence": null,
+      "scope": []
+    },
+    "image_video_audio_generation": {
+      "status": "not_authorized",
+      "evidence": null,
+      "scope": []
+    },
+    "editing_export_cover_upload_publish": {
+      "status": "not_authorized",
+      "evidence": null,
+      "scope": []
+    }
+  },
+  "blocking_items": [],
+  "non_blocking_items": [],
+  "unique_next_step": "A 按 B_STAGE_READY v1 做完整性验收；通过后直接派 C"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "启动 AI 影视项目"
+  short_description: "按模板创建并验证影视项目，支持六部门候选入口与旧版兼容"
+  default_prompt: "使用 $start-ai-film-project 按指定或本机配置的模板创建一个新的 AI 影视项目。"

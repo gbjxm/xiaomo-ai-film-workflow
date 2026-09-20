@@ -1,0 +1,7 @@
+interface:
+  display_name: "Seedance 2.5 中文视频提示词格式器"
+  short_description: "忠实整理 Seedance 2.5 提示词，前置已有画面要素并在框外诊断"
+  default_prompt: "使用 $format-seedance-2-prompt 按项目版本忠实编排本次输入；V0.9 可接 C2 整合候选，保留素材标记、时间关系和画面要素前置，候选说明与诊断放框外。"
+
+policy:
+  allow_implicit_invocation: false

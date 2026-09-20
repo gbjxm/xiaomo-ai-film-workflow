@@ -1,0 +1,20 @@
+{
+  "schema": "xiaomo.production-docs-layout/v1",
+  "marker": "production-docs-v1",
+  "directory": "90_制作资料",
+  "documentDirectories": [
+    "剧本",
+    "资产设计",
+    "色卡",
+    "表演设计",
+    "镜头规划",
+    "场景制作",
+    "提示词卡",
+    "生成记录",
+    "后期方案",
+    "发布包",
+    "工作稿",
+    "续接缓存",
+    "流程改进日志"
+  ]
+}

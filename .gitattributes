@@ -1,0 +1,7 @@
+# Preserve released bytes, UTF-8 BOM and PowerShell line endings on every checkout.
+* -text
+*.md diff
+*.json diff
+*.yaml diff
+*.py diff
+*.ps1 diff

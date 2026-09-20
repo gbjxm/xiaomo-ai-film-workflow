@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "b-stage-ready-packet.schema.json",
+  "title": "B_STAGE_READY v1 packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "contract_version",
+    "packet_version",
+    "supersedes_packet",
+    "handoff_id",
+    "handoff_revision",
+    "result",
+    "checked_at",
+    "source_b_task_id",
+    "a_task_envelope",
+    "b_record",
+    "authoritative_story",
+    "professional_self_check",
+    "user_decisions",
+    "released_sxx",
+    "rights_and_safety",
+    "external_actions",
+    "blocking_items",
+    "non_blocking_items",
+    "unique_next_step"
+  ],
+  "properties": {
+    "contract": { "const": "B_STAGE_READY" },
+    "contract_version": { "const": "v1" },
+    "packet_version": { "$ref": "#/$defs/version" },
+    "supersedes_packet": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "packet_version", "sha256", "handoff_revision"],
+          "properties": {
+            "path": { "type": "string", "pattern": "^剧本/阶段完成包/B阶段完成包_v[0-9]{2,}\\.json$" },
+            "packet_version": { "$ref": "#/$defs/version" },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "handoff_revision": { "type": "integer", "minimum": 1 }
+          }
+        }
+      ]
+    },
+    "handoff_id": { "$ref": "#/$defs/nonEmptyString" },
+    "handoff_revision": { "type": "integer", "minimum": 1 },
+    "result": { "const": "PASS" },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "source_b_task_id": { "$ref": "#/$defs/nonEmptyString" },
+    "a_task_envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["a_task_id", "a_task_version", "a_file_path", "a_file_sha256", "target_role", "stage_goal", "input_scope", "out_of_scope", "writeback_scope", "external_action_boundary", "envelope_match"],
+      "properties": {
+        "a_task_id": { "$ref": "#/$defs/nonEmptyString" },
+        "a_task_version": { "$ref": "#/$defs/nonEmptyString" },
+        "a_file_path": { "const": "A_总控.md" },
+        "a_file_sha256": { "$ref": "#/$defs/sha256" },
+        "target_role": { "const": "B" },
+        "stage_goal": { "$ref": "#/$defs/nonEmptyString" },
+        "input_scope": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "out_of_scope": { "$ref": "#/$defs/stringArray" },
+        "writeback_scope": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "oneOf": [
+              { "const": "B_故事剧本.md" },
+              { "type": "string", "pattern": "^剧本/阶段完成包/B阶段完成包_v[0-9]{2,}\\.json$" }
+            ]
+          }
+        },
+        "external_action_boundary": { "$ref": "#/$defs/externalActionMap" },
+        "envelope_match": { "const": "PASS" }
+      }
+    },
+    "b_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "version_or_anchor", "sha256"],
+      "properties": {
+        "path": { "const": "B_故事剧本.md" },
+        "version_or_anchor": { "$ref": "#/$defs/nonEmptyString" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "authoritative_story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["carrier", "path", "version_id", "sha256", "exact_scope", "word_lineage_status", "word_lineage_evidence", "word_conflicts"],
+      "properties": {
+        "carrier": { "enum": ["word", "b_markdown", "other_registered"] },
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "version_id": { "$ref": "#/$defs/nonEmptyString" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "exact_scope": { "$ref": "#/$defs/sxxScope" },
+        "word_lineage_status": { "enum": ["released", "not_applicable"] },
+        "word_lineage_evidence": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/fileEvidence" }
+          ]
+        },
+        "word_conflicts": { "const": "none" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "carrier": { "const": "word" } }, "required": ["carrier"] },
+          "then": {
+            "properties": {
+              "word_lineage_status": { "const": "released" },
+              "word_lineage_evidence": { "$ref": "#/$defs/fileEvidence" }
+            }
+          },
+          "else": {
+            "properties": {
+              "word_lineage_status": { "const": "not_applicable" },
+              "word_lineage_evidence": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "professional_self_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "evidence_path", "evidence_version_or_anchor", "evidence_sha256", "whole_story_categories", "expected_scene_count", "checked_scene_count", "scene_coverage_anchor"],
+      "properties": {
+        "overall": { "const": "PASS" },
+        "evidence_path": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence_version_or_anchor": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence_sha256": { "$ref": "#/$defs/sha256" },
+        "whole_story_categories": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/selfCheckCategory" }
+        },
+        "expected_scene_count": { "type": "integer", "minimum": 1 },
+        "checked_scene_count": { "type": "integer", "minimum": 1 },
+        "scene_coverage_anchor": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "user_decisions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["creative_adoption", "b_record_write", "production_release"],
+      "properties": {
+        "creative_adoption": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "exact_scope", "artifact_version", "artifact_sha256", "evidence"],
+          "properties": {
+            "status": { "const": "granted" },
+            "exact_scope": { "$ref": "#/$defs/sxxScope" },
+            "artifact_version": { "$ref": "#/$defs/nonEmptyString" },
+            "artifact_sha256": { "$ref": "#/$defs/sha256" },
+            "evidence": { "$ref": "#/$defs/nonEmptyString" }
+          }
+        },
+        "b_record_write": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "recorded_scope", "evidence", "b_write_completed", "packet_write_completed"],
+          "properties": {
+            "status": { "const": "granted" },
+            "recorded_scope": { "$ref": "#/$defs/sxxScope" },
+            "evidence": { "$ref": "#/$defs/nonEmptyString" },
+            "b_write_completed": { "const": true },
+            "packet_write_completed": { "const": true }
+          }
+        },
+        "production_release": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "exact_scope", "evidence"],
+          "properties": {
+            "status": { "const": "granted" },
+            "exact_scope": { "$ref": "#/$defs/sxxScope" },
+            "evidence": { "$ref": "#/$defs/nonEmptyString" }
+          }
+        }
+      }
+    },
+    "released_sxx": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "version", "b_anchor", "story_scope", "production_boundary"],
+        "properties": {
+          "id": { "$ref": "#/$defs/sxx" },
+          "version": { "$ref": "#/$defs/version" },
+          "b_anchor": { "$ref": "#/$defs/nonEmptyString" },
+          "story_scope": { "$ref": "#/$defs/nonEmptyStringArray" },
+          "production_boundary": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "rights_and_safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_status", "current_blockers", "downstream_conditions", "evidence"],
+      "properties": {
+        "stage_status": { "const": "CLEAR" },
+        "current_blockers": { "type": "array", "maxItems": 0 },
+        "downstream_conditions": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "external_actions": { "$ref": "#/$defs/externalActionMap" },
+    "blocking_items": { "type": "array", "maxItems": 0 },
+    "non_blocking_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "owner", "milestone"],
+        "properties": {
+          "description": { "$ref": "#/$defs/nonEmptyString" },
+          "owner": { "$ref": "#/$defs/nonEmptyString" },
+          "milestone": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "unique_next_step": { "const": "A 按 B_STAGE_READY v1 做完整性验收；通过后直接派 C" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "sha256": { "type": "string", "pattern": "^[0-9A-Fa-f]{64}$" },
+    "version": { "type": "string", "pattern": "^v[0-9]{2,}$" },
+    "sxx": { "type": "string", "pattern": "^S[0-9]{2,}$" },
+    "stringArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "sxxScope": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/sxx" }
+    },
+    "fileEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "version_or_anchor", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "version_or_anchor": { "$ref": "#/$defs/nonEmptyString" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "actionAuthorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence", "scope"],
+      "oneOf": [
+        {
+          "properties": {
+            "status": { "const": "not_authorized" },
+            "evidence": { "type": "null" },
+            "scope": { "type": "array", "maxItems": 0 }
+          }
+        },
+        {
+          "properties": {
+            "status": { "const": "authorized" },
+            "evidence": { "$ref": "#/$defs/nonEmptyString" },
+            "scope": { "$ref": "#/$defs/nonEmptyStringArray" }
+          }
+        }
+      ]
+    },
+    "externalActionMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tts", "document_editing", "image_video_audio_generation", "editing_export_cover_upload_publish"],
+      "properties": {
+        "tts": { "$ref": "#/$defs/actionAuthorization" },
+        "document_editing": { "$ref": "#/$defs/actionAuthorization" },
+        "image_video_audio_generation": { "$ref": "#/$defs/actionAuthorization" },
+        "editing_export_cover_upload_publish": { "$ref": "#/$defs/actionAuthorization" }
+      }
+    },
+    "selfCheckCategory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "result", "evidence_anchor", "na_reason"],
+      "properties": {
+        "id": {
+          "enum": [
+            "premise_and_rules",
+            "protagonist_arc_and_relationships",
+            "causality_reveals_and_payoffs",
+            "continuity",
+            "dialogue",
+            "visible_action_and_production_boundary",
+            "duration_rhythm_format_and_scope",
+            "rights_safety_privacy_and_synthetic_risk"
+          ]
+        },
+        "result": { "enum": ["PASS", "N/A"] },
+        "evidence_anchor": { "$ref": "#/$defs/nonEmptyString" },
+        "na_reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "result": { "const": "N/A" } }, "required": ["result"] },
+          "then": { "properties": { "na_reason": { "$ref": "#/$defs/nonEmptyString" } } },
+          "else": { "properties": { "na_reason": { "type": "null" } } }
+        }
+      ]
+    }
+  }
+}

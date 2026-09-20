@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 影视资产设计"
+  short_description: "建立生产设计、空间状态链与可追溯 Axx 资产规格"
+  default_prompt: "使用 $design-ai-film-assets 按项目版本设计角色、场景与状态；V0.9 先与导演形成资产候选，旧项目从采用 Sxx 建立资产规格。"

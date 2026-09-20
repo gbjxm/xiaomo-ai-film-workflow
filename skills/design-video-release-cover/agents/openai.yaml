@@ -1,0 +1,4 @@
+interface:
+  display_name: "发行封面设计"
+  short_description: "从精确 QC Master 制作并验收抖音与B站发行封面"
+  default_prompt: "使用 $design-video-release-cover 核验精确 QC Master，并为它制作或验收一张可发布封面。"

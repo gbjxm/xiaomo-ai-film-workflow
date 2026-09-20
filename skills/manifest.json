@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "bundleName": "小陌AI影视工作流",
+  "bundleVersion": "1.0",
+  "skills": [
+    "start-ai-film-project",
+    "orchestrate-ai-film-project",
+    "shape-story-skeleton",
+    "develop-screenplay-from-idea",
+    "evaluate-film-topics",
+    "direct-ai-scene-production",
+    "design-ai-film-assets",
+    "cinematic-palette-architect",
+    "direct-ai-character-performance",
+    "plan-ai-shots-and-previs",
+    "format-gpt-image-2-prompt",
+    "format-seedance-2-prompt",
+    "produce-and-review-ai-media",
+    "organize-ai-film-media",
+    "edit-and-finish-ai-film",
+    "grade-film-in-resolve",
+    "davinci-resolve-mcp",
+    "package-video-release",
+    "design-video-release-cover",
+    "check-video-release-readiness",
+    "review-ai-film-results",
+    "improve-ai-film-workflow",
+    "manage-film-competition-submissions"
+  ]
+}

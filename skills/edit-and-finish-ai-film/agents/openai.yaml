@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 影视后期完成"
+  short_description: "按风险完成接管、剪辑锁画、组件、母版质检与恢复"
+  default_prompt: "使用 $edit-and-finish-ai-film 先判断后期任务深度，并基于精确版本完成最小必要处理。"

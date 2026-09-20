@@ -1,0 +1,4 @@
+interface:
+  display_name: "从点子到故事骨架"
+  short_description: "从模糊影视点子滚动整理故事骨架，并保护用户方向控制权"
+  default_prompt: "使用 $shape-story-skeleton 从一个模糊影视点子整理故事骨架；每轮只处理一个核心问题。"

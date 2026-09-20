@@ -1,0 +1,4 @@
+interface:
+  display_name: "选题与影片参照"
+  short_description: "为已有故事定位类型、精选参考影片并评价选题价值，按需核查关键片段与热点依据"
+  default_prompt: "使用 $evaluate-film-topics 分析这份故事的类型、值得借鉴的影片和选题价值，保留我的创作方向并说明依据。"

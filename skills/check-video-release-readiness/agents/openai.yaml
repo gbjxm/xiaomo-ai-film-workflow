@@ -1,0 +1,4 @@
+interface:
+  display_name: "发行就绪检查"
+  short_description: "独立核验精确 Master 绑定、发布包、平台规则与授权状态"
+  default_prompt: "使用 $check-video-release-readiness 核对精确 Master 与组件绑定，检查这套发布包是否安全就绪，先不要上传或发布。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 场景生产导演"
+  short_description: "统合前期导演与专业候选，兼容场景制作卡和精确素材交接"
+  default_prompt: "使用 $direct-ai-scene-production 按项目版本建立导演基准；V0.9 项目统合前期与片段完整候选，旧项目按原场景生产契约办理。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "从一个点子到完整剧本"
+  short_description: "用五本经典编剧书分层共创并反复诊断面向AI短片生产的完整剧本"
+  default_prompt: "使用 $develop-screenplay-from-idea 与我逐步发展故事，并在版本稳定后进行五书会诊。"

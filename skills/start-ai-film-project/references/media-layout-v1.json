@@ -1,0 +1,24 @@
+{
+  "schema": "xiaomo.media-layout/v1",
+  "fixedDirectories": [
+    "01_图片",
+    "02_视频",
+    "02_视频/Aroll",
+    "02_视频/Broll",
+    "02_视频/其他素材",
+    "03_音频",
+    "03_音频/音效",
+    "03_音频/BGM",
+    "04_导出",
+    "04_导出/小样",
+    "04_导出/成片"
+  ],
+  "optionalImageDirectories": [
+    "01_图片/人物",
+    "01_图片/场景",
+    "01_图片/道具",
+    "01_图片/镜头图",
+    "01_图片/封面"
+  ],
+  "projectFolderPattern": "yyyy-MM-dd_project_vN"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI角色表演与动作导演"
+  short_description: "把导演基准转成可生成的表演、聆听反应与动作链"
+  default_prompt: "使用 $direct-ai-character-performance 依据场景导演基准设计可生成、可衔接的角色表演与动作方案。"

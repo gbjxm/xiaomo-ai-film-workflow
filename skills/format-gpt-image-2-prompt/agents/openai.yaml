@@ -1,0 +1,7 @@
+interface:
+  display_name: "GPT Image 2.5 中文提示词格式器"
+  short_description: "忠实编排画面构建与具体成像表现，按图片用途检查关键缺口"
+  default_prompt: "使用 $format-gpt-image-2-prompt 按项目版本忠实编排本次明确提交的信息；V0.9 可接 C1/C2 整合候选，候选说明放框外并保留分区诊断。"
+
+policy:
+  allow_implicit_invocation: false

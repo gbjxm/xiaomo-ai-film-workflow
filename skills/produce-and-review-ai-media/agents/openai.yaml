@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 媒体生成审查"
+  short_description: "核对媒体输入与真实结果，按项目版本区分资产和镜头记录"
+  default_prompt: "使用 $produce-and-review-ai-media 按项目版本核对输入和真实媒体；V0.9 按能力保存 Axx/Vxx 候选与明确采用的真实记录；审看已有媒体，不代替用户生成。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "影视工作流自我迭代"
+  short_description: "集中记录五岗位流程问题并按用户选择安全升级总工作流"
+  default_prompt: "使用 $improve-ai-film-workflow 查看待处理改进日志，先只读复盘。"

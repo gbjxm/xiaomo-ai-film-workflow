@@ -1,0 +1,4 @@
+interface:
+  display_name: "生成视频整理与取用"
+  short_description: "按片段整理多条生成原片，记录可用区间并查找剪辑素材，保留原件与已引用路径"
+  default_prompt: "使用 $organize-ai-film-media 整理这批生成视频，区分同片段结果并按需要记录可用区间。"

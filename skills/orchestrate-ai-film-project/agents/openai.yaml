@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 影视制片统筹"
+  short_description: "按项目版本组织六部门候选协作，核对制作范围、依赖和真实里程碑"
+  default_prompt: "使用 $orchestrate-ai-film-project 先识别项目版本，核对当前制作范围、有效材料和下一步，按适用契约组织协作。"

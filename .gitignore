@@ -1,0 +1,24 @@
+# Personal projects, maintenance evidence and optional private knowledge
+/项目/
+/90_维护资料/
+/知识工程/
+/.learnings/
+/Microsoft/
+/.codex/
+xiaomo-ai-film-workflow.json
+
+# Local runtime and credentials
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+Thumbs.db
+.DS_Store

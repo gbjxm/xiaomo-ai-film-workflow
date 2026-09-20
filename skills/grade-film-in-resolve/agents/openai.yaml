@@ -1,0 +1,4 @@
+interface:
+  display_name: "达芬奇原生调色"
+  short_description: "按影片意图在同一达芬奇工程中后台调色、动态复看并导出验证"
+  default_prompt: "使用 $grade-film-in-resolve，核对当前影片与原生接口能力，在指定达芬奇工程中完成本次已授权的调色，并回查真实导出。"
