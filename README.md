@@ -28,7 +28,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\安装工作流.ps1" -Ver
 使用 $start-ai-film-project，新建影视项目《项目名》。
 ```
 
-新项目保存在本地 `项目/` 中，使用项目内的 `开始这里.md` 继续工作；该目录默认不进入 Git。
+仓库中的 `项目/` 仅包含 `.gitkeep` 占位文件。新项目保存在本地 `项目/` 中，使用项目内的 `开始这里.md` 继续工作；项目内容默认不进入 Git。
 
 ## 六个专业部门
 
